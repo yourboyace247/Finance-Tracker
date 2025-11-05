@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Finance Tracker</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="icon">💰</i> Finance Tracker</h1>
+            <p class="subtitle">Personal Finance Manager</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Finance Summary -->
+            <section class="balance-section">
+                <div class="balance-card">
+                    <h2>Current Balance</h2>
+                    <div id="balance" class="balance-amount">€0.00</div>
+                    <div class="balance-stats">
+                        <div class="stat">
+                            <span class="stat-label">Income</span>
+                            <span id="total-income" class="stat-value income">€0.00</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Expenses</span>
+                            <span id="total-expense" class="stat-value expense">€0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Input Form -->
+            <section class="form-section">
+                <div class="form-card">
+                    <h2>Add New Transaction</h2> 
+                    <form id="transaction-form" class="transaction-form">
+                        <div class="form-group">
+                            <label for="amount">Amount (€) *</label> 
+                            <input type="number" id="amount" name="amount" step="0.01" min="0" placeholder="0.00" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="type">Type *</label>
+                            <select id="type" name="type" required>
+                                <option value="">-- Choose Type --</option>
+                                <option value="income">Income</option>
+                                <option value="expense">Expense</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="category">Category *</label>
+                            <select id="category" name="category" required>
+                                <option value="">-- Choose Category --</option>
+                                <optgroup label="Income">
+                                    <option value="salary">Salary</option> 
+                                    <option value="freelance">Freelance</option>
+                                    <option value="investment">Investment</option>
+                                    <option value="other-income">Other</option>
+                                </optgroup>
+                                <optgroup label="Expense">
+                                    <option value="food">Food</option>
+                                    <option value="transport">Transport</option>
+                                    <option value="housing">Housing</option>
+                                    <option value="utilities">Utilities</option>
+                                    <option value="entertainment">Entertainment</option>
+                                    <option value="health">Health</option>
+                                    <option value="shopping">Shopping</option>
+                                    <option value="other-expense">Other</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="date">Date *</label> 
+                            <input type="date" id="date" name="date" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea id="description" name="description" placeholder="Add note..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary">
+                            <i class="icon">➕</i> Add Transaction 
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Filters & Statistics-->
+            <section class="filters-section">
+                <div class="filters-card">
+                    <h2>Filters & Statistics</h2>
+                    <div class="filters">
+                        <div class="filter-group">
+                            <label for="month-filter">Month</label>
+                            <select id="month-filter">
+                                <option value="all">All Months</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="category-filter">Category</label>
+                            <select id="category-filter">
+                                <option value="all">All Categories</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="type-filter">Type</label>
+                            <select id="type-filter">
+                                <option value="all">All</option>
+                                <option value="income">Incomes</option> 
+                                <option value="expense">Expenses</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Graphics -->
+            <section class="charts-section">
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h3>Expenses by Category</h3>
+                        <div class="chart-container">
+                            <canvas id="category-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <h3>Monthly Comparison</h3>
+                        <div class="chart-container">
+                            <canvas id="monthly-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Transactions History -->
+            <section class="transactions-section">
+                <div class="transactions-card">
+                    <div class="section-header">
+                        <h2>Transactions History</h2>
+                        <div class="transactions-summary">
+                            <span id="transactions-count">0 Transactions</span>
+                        </div>
+                    </div>
+
+                    <div class="transactions-list" id="transactions-list">
+                        <!-- Empty state -->
+                        <div class="empty-state">
+                            <i class="icon">📊</i>
+                            <p>There are no registered transactions</p>
+                            <small>Add your first transaction above</small>
+                        </div>
+
+                        <!-- Example Transaction 1 -->
+                        <div class="transaction-item">
+                            <div class="transaction-type income"></div>
+                            <div class="transaction-details">
+                                <div class="transaction-category">Salary</div>
+                                <div class="transaction-description">November Salary</div>
+                                <div class="transaction-date">2025-11-01</div>
+                            </div>
+                            <div class="transaction-amount income">€3000.00</div>
+                            <div class="transaction-actions">
+                                <button class="btn-icon btn-edit" title="Edit">✏️</button>
+                                <button class="btn-icon btn-delete" title="Delete">🗑️</button>
+                            </div>
+                        </div>
+
+                        <!-- Example Transaction 2 -->
+                        <div class="transaction-item">
+                            <div class="transaction-type expense"></div>
+                            <div class="transaction-details">
+                                <div class="transaction-category">Food</div>
+                                <div class="transaction-description">Dinner at restaurant</div>
+                                <div class="transaction-date">2025-11-03</div>
+                            </div>
+                            <div class="transaction-amount expense">€50.00</div>
+                            <div class="transaction-actions">
+                                <button class="btn-icon btn-edit" title="Edit">✏️</button>
+                                <button class="btn-icon btn-delete" title="Delete">🗑️</button>
+                            </div>
+                        </div>
+
+                        <!-- Example Transaction 3 -->
+                        <div class="transaction-item">
+                            <div class="transaction-type expense"></div>
+                            <div class="transaction-details">
+                                <div class="transaction-category">Transport</div>
+                                <div class="transaction-description">Monthly Metro Pass</div>
+                                <div class="transaction-date">2025-11-02</div>
+                            </div>
+                            <div class="transaction-amount expense">€80.00</div>
+                            <div class="transaction-actions">
+                                <button class="btn-icon btn-edit" title="Edit">✏️</button>
+                                <button class="btn-icon btn-delete" title="Delete">🗑️</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for Editing -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Transaction</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <form id="edit-form" class="transaction-form">
+                <!-- Form will be filled dynamically -->
+            </form>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
