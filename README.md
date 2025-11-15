@@ -74,6 +74,14 @@ Button Edit: You can edit a transation by clicking the :pencil2: button.
 
 Button Delete: You can delete a transaction by clicking the :recycle: button.
 
+# :bulb: Technologies this app shows:
+
+1. JavaScript (ES6+).
+2. DOM Manipulation.
+3. LocalStorage or IndexedDB.
+4. Chart.js or D3.js.
+5. CSS (Flexbox/Grid)
+
 ## :tv: [Finance Tracker Video Presentation](https://drive.google.com/file/d/1UD64yAejuPAFUUvmFdUxGhFXRXVUvqaT/view)
 
 You can watch my video presentation, and check in action how the application works.
