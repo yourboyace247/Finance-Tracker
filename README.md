@@ -10,7 +10,7 @@ The header of the application.
 # :dollar: Balance!
 ![Home Page](https://raw.githubusercontent.com/yourboyace247/Finance-Tracker/main/images/Balance!.png)
 
-Below the header you will see your balance.Current balace has the amount of the money currently have.The same is the Income.Expenses display the amount of all the money you spended.
+Below the header you will see your balance.Current balace has the amount of the money you currently have.The same goes for Income.Expenses display the amount of all the money you spended.
 
 # :money_with_wings: Add New Transaction:
 ![Transaction](https://raw.githubusercontent.com/yourboyace247/Finance-Tracker/main/images/Transaction.png)
@@ -20,7 +20,7 @@ Next we have the "Add New Transaction" section.
 # Amount:
 ![Amount](https://raw.githubusercontent.com/yourboyace247/Finance-Tracker/main/images/Amount.png)
 
-Input Amount: You add the amount of money you received or you spend.
+Input Amount: You add the amount of money you received, or you spend.
 
 # Type:
 ![Type](https://raw.githubusercontent.com/yourboyace247/Finance-Tracker/main/images/Type.png)
@@ -30,7 +30,7 @@ Input Type: You choose the type of the amount if it is "Income" or "Expense".
 # Category:
 ![Category](https://raw.githubusercontent.com/yourboyace247/Finance-Tracker/main/images/Category.png)
 
-Input Category: You have two types of categories "Income" and "Expense" again, but they have sub-categories, here you choose sub-category related to your income or expense.
+Input Category: You have two types of categories "Income" and "Expense" again, but they have sub-categories, here you choose sub-category related to your income, or expense.
 
 # Date:
 ![Date](https://raw.githubusercontent.com/yourboyace247/Finance-Tracker/main/images/Date.png)
@@ -50,9 +50,9 @@ Button Add Transaction: You click the button to add your transaction.
 # :signal_strength: Filters & Statistics:
 ![Filters](https://raw.githubusercontent.com/yourboyace247/Finance-Tracker/main/images/Filters.png)
 
-Input Month: You can filter your income and expenses by month.
-Input Category: This input is empty since the "Type" input showcases you your incomes and expenses.
-Input Type: Showcases you your incomes and expenses in chart.
+Input Month: You can filter your income and expenses by month.<br>
+Input Category: This input is empty since the "Type" input showcases you your incomes and expenses.<br>
+Input Type: Showcases you your incomes and expenses in chart.<br>
 
 # :chart_with_upwards_trend: Charts:
 ![Charts](https://raw.githubusercontent.com/yourboyace247/Finance-Tracker/main/images/Charts.png)
